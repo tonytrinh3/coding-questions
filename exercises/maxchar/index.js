@@ -7,7 +7,12 @@
 
 function maxChar(str) {
 
+    //use of character map is great to solve different types of string related questions
+
     const charMap = {};
+
+    let max = 0;
+    let maxChar = '';
 
     for (let char of str){
         if (!charMap[char]) {
@@ -21,7 +26,15 @@ function maxChar(str) {
         // chars[char] = chars[char] + 1 || 1;
     }
 
-    console.log(charMap);
+    for (let char in charMap){
+        if (charMap[char] > max){
+            //remember that charMap[char] outputs the corresponding number with the letter in the object
+            max = charMap[char];
+            maxChar = char;
+        }
+    }
+
+    return maxChar;
 
 }
 
